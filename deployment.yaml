@@ -8,7 +8,7 @@ metadata:
     app.kubernetes.io/managed-by: kubectl
   name: cicd-demo-deployment
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: cicd-demo
