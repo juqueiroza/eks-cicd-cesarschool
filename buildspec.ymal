@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Logging in to Amazon ECR..."
+      - aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin 325583868777.dkr.ecr.ca-central-1.amazonaws.com
+  build:
+    commands:
+      - echo "Building the Docker image..."
+      - docker build -t dp020-repository .
+      - docker tag dp020-repository:latest 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp020-repository:latest
+      - echo "Pushing the Docker image to ECR..."
+      - docker push 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp020-repository:latest
+  post_build:
+    commands:
+      - aws eks update-kubeconfig --name EKSDeepDive --region ca-central-1
+      - echo "Validating Kubernetes connection..."
+      - kubectl get nodes || echo "Failed to connect to the cluster"
+      - echo "Updating Kubernetes deployment..."
+      - kubectl apply -f deployment.yaml
+      - kubectl apply -f service.yaml
+
+artifacts:
+  files:
+    - '**/*'
