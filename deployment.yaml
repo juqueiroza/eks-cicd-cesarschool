@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app.kubernetes.io/name: cicd-demo
-    app.kubernetes.io/instance: cicd-demo-instance
+    app.kubernetes.io/name: dp002-app
+    app.kubernetes.io/instance: dp002-app-instance
     app.kubernetes.io/version: '1.0.0'
     app.kubernetes.io/managed-by: kubectl
-  name: cicd-demo-deployment
+  name: dp002-app-deployment
 spec:
   replicas: 0
   selector:
     matchLabels:
-      app: cicd-demo
+      app: dp002-app
   template:
     metadata:
       labels:
         app: dp002-app
     spec:
       containers:
-        - image: 325583868777.dkr.ecr.ca-central-1.amazonaws.com/cicd-demo:latest
+        - image: 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp002-app:latest
           imagePullPolicy: Always
           name: dp002-app
           ports:
