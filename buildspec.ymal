@@ -8,8 +8,8 @@ phases:
   build:
     commands:
       - echo "Building the Docker image..."
-      - docker build -t dp020-repository .
-      - docker tag dp020-repository:latest 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp020-repository:latest
+      - docker build -t dp002-repository .
+      - docker tag dp002-repository:latest 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp020-repository:latest
       - echo "Pushing the Docker image to ECR..."
       - docker push 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp020-repository:latest
   post_build:
