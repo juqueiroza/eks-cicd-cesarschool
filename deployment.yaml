@@ -18,7 +18,7 @@ spec:
         app: dp002-app
     spec:
       containers:
-        - image: 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp002-app:latest
+        - image: 325583868777.dkr.ecr.ca-central-1.amazonaws.com/dp002-repository:latest
           imagePullPolicy: Always
           name: dp002-app
           ports:
