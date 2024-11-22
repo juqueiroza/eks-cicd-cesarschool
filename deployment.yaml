@@ -15,11 +15,11 @@ spec:
   template:
     metadata:
       labels:
-        app: cicd-demo
+        app: dp002-app
     spec:
       containers:
         - image: 325583868777.dkr.ecr.ca-central-1.amazonaws.com/cicd-demo:latest
           imagePullPolicy: Always
-          name: cicd-demo
+          name: dp002-app
           ports:
             - containerPort: 3000
