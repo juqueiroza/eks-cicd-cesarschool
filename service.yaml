@@ -7,10 +7,10 @@ metadata:
     app.kubernetes.io/version: "1.0.0"
     app.kubernetes.io/component: backend
     app.kubernetes.io/managed-by: kubectl
-  name: cicd-demo
+  name: dp002-app
 spec:
   selector:
-    app: cicd-demo
+    app: dp002-app
   ports:
    -  protocol: TCP
       port: 8080
